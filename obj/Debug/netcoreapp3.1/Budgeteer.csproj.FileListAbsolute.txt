@@ -45,7 +45,6 @@ C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\bin\Debug\netcoreapp3.1\Budgeteer.Views.dll
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\bin\Debug\netcoreapp3.1\Budgeteer.Views.pdb
-C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.csprojAssemblyReference.cache
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.RazorAssemblyInfo.cache
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.RazorAssemblyInfo.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.TagHelpers.input.cache
@@ -58,3 +57,4 @@ C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Pages\404.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.csprojAssemblyReference.cache

@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Budgeteer.Identity;
+using Budgeteer.Models;
 
 namespace Budgeteer
 {
@@ -25,6 +26,10 @@ namespace Budgeteer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPasswordHasher<AppUser>, PasswordHasher>();
+            services.AddDbContext<budgeteer_appdbContext>(opts =>
+            {
+                opts.UseNpgsql(Configuration["AppDB:Key"]);
+            });
             services.AddDbContext<AppUserDbContext>(opts =>
             {
                 opts.UseNpgsql(Configuration["AppUserDB:Key"]);
