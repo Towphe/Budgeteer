@@ -21,7 +21,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Hubs\" />
-    <Folder Include="Pages\" />
+    <Folder Include="Pages\Home\" />
     <Folder Include="Views\" />
   </ItemGroup>
 
