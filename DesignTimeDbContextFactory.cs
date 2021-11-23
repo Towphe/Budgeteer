@@ -9,13 +9,14 @@ namespace Budgeteer
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppUserDbContext>
     {
+        public IConfiguration Configuration { get; set; }
+        public DesignTimeDbContextFactory(IConfiguration config) => Configuration = config;
         public AppUserDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
             var builder = new DbContextOptionsBuilder<AppUserDbContext>();
 
-            // TODO: Place connection string on user-secrets
-            builder.UseNpgsql("Host=localhost;Database=budgeteer_appuserdb;Username=postgres;Password=pingu");
+            builder.UseNpgsql(Configuration["AppUserDB:Key"]);
             return new AppUserDbContext(builder.Options);
         }
     }

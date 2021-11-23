@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -18,16 +19,26 @@ namespace Budgeteer
 {
     public class Startup
     {
+        public Startup(IConfiguration config) => Configuration = config;
+        public IConfiguration Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IPasswordHasher<AppUser>, PasswordHasher>();
             services.AddDbContext<AppUserDbContext>(opts =>
             {
-                opts.UseNpgsql("Host=localhost;Database=budgeteer_appuserdb;Username=postgres;Password=pingu");
+                opts.UseNpgsql(Configuration["AppUserDB:Key"]);
             });
             services.AddIdentityCore<AppUser>(opts =>
             {
-                // Set password settings here later
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<AppUserDbContext>().AddSignInManager().AddDefaultTokenProviders();
+            services.AddAuthentication(opts => opts.DefaultScheme = IdentityConstants.ApplicationScheme).AddCookie(IdentityConstants.ApplicationScheme, opts =>
+            {
+                opts.LoginPath = "/signin";
+            });
+            services.AddAuthorization();
             services.AddControllers();
             services.AddControllersWithViews();
             services.AddRazorPages();
