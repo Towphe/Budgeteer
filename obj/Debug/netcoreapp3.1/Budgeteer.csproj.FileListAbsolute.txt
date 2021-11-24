@@ -58,3 +58,7 @@ C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Pages\404.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.csprojAssemblyReference.cache
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Wallet\Index.cshtml.g.cs
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
