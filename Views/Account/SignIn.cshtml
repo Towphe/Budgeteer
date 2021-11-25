@@ -1,0 +1,10 @@
+﻿<h1>Sign In</h1>
+<form action="AttemptSignIn" method="post">
+    <label>Username</label>
+    <input name="username" type="text" />
+    <label>Password</label>
+    <input name="password" type="password" />
+    <input name="returnUrl" type="text" value=@ViewData["returnUrl"] hidden />
+    <p>No account yet? Register <a href="/account/signup">here</a></p>
+    <button type="submit">Sign In</button>
+</form>

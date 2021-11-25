@@ -1,0 +1,22 @@
+﻿@model AppUser
+
+<form asp-action="AttemptSignUp" method="post">
+    <label>Username</label>
+    <input asp-for="UserName" />
+    <label>Email</label>
+    <input asp-for="Email" />
+    <label>Password</label>
+    <input name="password" id="pword" type="password" />
+    <label>Confirm Password</label>
+    <input name="conpword" id="conpword" type="password" />
+    <button id="signUpButton" type="submit">Sign Up</button>
+    <!-- TODO: Code this better -->
+    <script>
+        function isPasswordMatching() {
+            if (document.getElementById("pword").innerHTML != document.getElementById("conpword").innerHTML) {
+                alert("Passwords does not match");
+                return false;
+            }
+        }
+    </script>
+</form> 

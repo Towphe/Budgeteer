@@ -6,6 +6,16 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="AttemptSignOut" asp-controller="Account" method="post">
+            <button type="submit">Sign Out</button>
+        </form>
+    }
+    else
+    {
+        <button><a href="/account/signin">Sign In</a></button>
+    }
     <div>
         @RenderBody()
     </div>

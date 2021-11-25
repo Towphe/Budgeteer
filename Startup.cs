@@ -42,7 +42,9 @@ namespace Budgeteer
             }).AddEntityFrameworkStores<AppUserDbContext>().AddSignInManager().AddDefaultTokenProviders();
             services.AddAuthentication(opts => opts.DefaultScheme = IdentityConstants.ApplicationScheme).AddCookie(IdentityConstants.ApplicationScheme, opts =>
             {
-                opts.LoginPath = "/signin";
+                opts.LoginPath = "/account/signin";
+                opts.LogoutPath = "/account/signout";
+                opts.ReturnUrlParameter = "returnUrl";
             });
             services.AddAuthorization();
             services.AddControllers();
@@ -56,7 +58,6 @@ namespace Budgeteer
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseStaticFiles();
             app.UseRouting();
             app.UseHttpsRedirection();
