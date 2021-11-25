@@ -22,7 +22,17 @@ namespace Budgeteer.Controllers
         private AppUserDbContext AppUserDBCtx { get; set; }
         public IActionResult Index()
         {
-            ViewBag.Title = $"Wallet";
+            ViewBag.Title = "Wallet";
+            return View();
+        }
+        public IActionResult Purchases()
+        {
+            ViewBag.Title = "Purchases";
+            return View();
+        }
+        public IActionResult Savings()
+        {
+            ViewBag.Title = "Savings";
             return View();
         }
     }

@@ -64,3 +64,5 @@ C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignUp.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignIn.cshtml.g.cs
 C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Budgeteer.csprojAssemblyReference.cache
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Wallet\Purchases.cshtml.g.cs
+C:\Users\5431\Documents\Programming Files\Backend Development\Projects\Budgeteer\obj\Debug\netcoreapp3.1\Razor\Views\Wallet\Savings.cshtml.g.cs
