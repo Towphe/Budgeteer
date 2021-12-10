@@ -1,1 +1,42 @@
-﻿<h2 style="position:center">Purchases</h2>
+﻿@model PurchaseViewModel
+
+<h2 style="position:center">Purchases</h2>
+
+    <div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+            </tr>
+            @for (int i = 0; i < Model.Purchases.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Purchases[i].Description</td>
+                    <td>@Model.Purchases[i].Amount</td>
+                    <td>@Model.Purchases[i].Date.ToShortDateString()</td>
+                    <td>@Model.Purchases[i].Category</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <ul>
+        @{
+            for (int i = 0; i < Model.PageCount; i++)
+            {
+                <li><a href="/wallet/purchases?page=@(i+1)">@(i+1)</a></li>
+            }
+        }
+    </ul>
+<div>
+    <form method="post" asp-action="AddPurchase">
+        <label>Description</label>
+        <input name="description" type="text" />
+        <label>Amount</label>
+        <input name="amount" type="number" />
+        <label>Category</label>
+        <input name="category" type="text" />
+        <button type="submit">Add</button>
+    </form>
+</div>

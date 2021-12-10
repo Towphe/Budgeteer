@@ -1,1 +1,44 @@
-﻿<h2 style="position:center">Savings</h2>
+﻿@model SavingViewModel
+
+<h2 style="position:center">Savings</h2>
+
+    <div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+            </tr>
+            @for (int i = 0; i < Model.Savings.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Savings[i].Description</td>
+                    <td>@Model.Savings[i].Amount</td>
+                    <td>@Model.Savings[i].Date.ToShortDateString()</td>
+                    <td>@Model.Savings[i].Category</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <ul>
+        @{
+            for (int i = 0; i < Model.PageCount; i++)
+            {
+                <li><a href="/wallet/purchases?page=@(i+1)">@(i+1)</a></li>
+            }
+        }
+    </ul>
+<div>
+    <div>
+        <form method="post" asp-action="AddSavings">
+            <label>Description</label>
+            <input name="description" type="text" />
+            <label>Amount</label>
+            <input name="amount" type="number" />
+            <label>Category</label>
+            <input name="category" type="text" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
