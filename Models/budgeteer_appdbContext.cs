@@ -59,6 +59,10 @@ namespace Budgeteer.Models
                     .HasMaxLength(200)
                     .HasColumnName("description");
 
+                entity.Property(e => e.IsDeleted)
+                    .HasColumnName("is_deleted")
+                    .HasDefaultValueSql("false");
+
                 entity.Property(e => e.UserId).HasColumnName("user_id");
             });
 
@@ -87,6 +91,10 @@ namespace Budgeteer.Models
                     .IsRequired()
                     .HasMaxLength(200)
                     .HasColumnName("description");
+
+                entity.Property(e => e.IsDeleted)
+                    .HasColumnName("is_deleted")
+                    .HasDefaultValueSql("false");
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
             });

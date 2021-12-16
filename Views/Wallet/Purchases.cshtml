@@ -12,12 +12,22 @@
             </tr>
             @for (int i = 0; i < Model.Purchases.Count; i++)
             {
-                <tr>
-                    <td>@Model.Purchases[i].Description</td>
-                    <td>@Model.Purchases[i].Amount</td>
-                    <td>@Model.Purchases[i].Date.ToShortDateString()</td>
-                    <td>@Model.Purchases[i].Category</td>
-                </tr>
+        <tr>
+            <td>@Model.Purchases[i].Description</td>
+            <td>@Model.Purchases[i].Amount</td>
+            <td>@Model.Purchases[i].Date.ToShortDateString()</td>
+            <td>@Model.Purchases[i].Category</td>
+            <td>
+                <form asp-action="DeletePurchase" method="post">
+                    <input name="id" value="@Model.Purchases[i].Id" type="text" style="visibility:hidden" />
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <button><a href="/Wallet/UpdatePurchase?id=@Model.Purchases[i].Id">Update</a></button>
+            </td>
+            <!--<p><a asp-controller="Wallet" asp-action="DeletePurchase">Delete</a></p>-->
+        </tr>
             }
         </table>
     </div>

@@ -35,7 +35,7 @@ namespace Budgeteer.Controllers
             ViewBag.Title = "Purchases";
             PurchaseViewModel purchases = new PurchaseViewModel()
             {
-                Purchases = AppDBCtx.Purchases.Where(s => s.UserId == user.Id).Skip((page - 1) * 10).Take(10).ToList<Purchase>(),
+                Purchases = AppDBCtx.Purchases.Where(s => s.UserId == user.Id && s.IsDeleted == false).Skip((page - 1) * 10).Take(10).ToList<Purchase>(),
                 PageCount = Convert.ToInt32(Math.Floor(Convert.ToDecimal((AppDBCtx.Purchases.Where(s => s.UserId == user.Id).Count()) / 10))) + 1
             };
             return View(purchases);
@@ -50,11 +50,20 @@ namespace Budgeteer.Controllers
                 Description = description,
                 Amount = amount,
                 Category = category,
-                Date = DateTime.UtcNow
+                Date = DateTime.UtcNow,
+                IsDeleted = false
             });
+            await AppDBCtx.SaveChangesAsync(); 
+            return RedirectToAction(nameof(Purchases));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeletePurchase([FromForm] long id)
+        {
+            AppDBCtx.Purchases.Find(id).IsDeleted = true;
             await AppDBCtx.SaveChangesAsync();
             return RedirectToAction(nameof(Purchases));
         }
+        
         // TODO: Make view component for savings table
         public async Task<IActionResult> Savings([FromQuery] int page = 1)
         {
@@ -62,7 +71,7 @@ namespace Budgeteer.Controllers
             ViewBag.Title = "Savings";
             SavingViewModel savings = new SavingViewModel
             {
-                Savings = AppDBCtx.Savings.Where(s => s.UserId == user.Id).Skip((page - 1) * 10).Take(10).ToList<Saving>(),
+                Savings = AppDBCtx.Savings.Where(s => s.UserId == user.Id && s.IsDeleted == false).Skip((page - 1) * 10).Take(10).ToList<Saving>(),
                 PageCount = Convert.ToInt32(Math.Floor(Convert.ToDecimal((AppDBCtx.Savings.Where(s => s.UserId == user.Id).Count()) / 10))) + 1
             };
             return View(savings);
@@ -77,10 +86,18 @@ namespace Budgeteer.Controllers
                 Description = description,
                 Amount = amount,
                 Category = category,
-                Date = DateTime.UtcNow
+                Date = DateTime.UtcNow,
+                IsDeleted = false
             });
             await AppDBCtx.SaveChangesAsync();
-            return RedirectToAction(nameof(Purchases));
+            return RedirectToAction(nameof(Savings));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteSavings([FromForm] long id)
+        {
+            AppDBCtx.Savings.Find(id).IsDeleted = true;
+            await AppDBCtx.SaveChangesAsync();
+            return RedirectToAction(nameof(Savings));
         }
     }
     
