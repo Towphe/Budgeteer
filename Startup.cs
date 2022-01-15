@@ -36,6 +36,7 @@ namespace Budgeteer
             });
             services.AddIdentityCore<AppUser>(opts =>
             {
+                // TODO: Make these strict
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireNonAlphanumeric = false;
                 opts.Password.RequireDigit = false;

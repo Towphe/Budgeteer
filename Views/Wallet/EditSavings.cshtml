@@ -1,0 +1,12 @@
+﻿@model Saving
+
+<form asp-action="UpdateSavings" method="post">
+    <input name="id" type="number" value="@Model.Id" style="display:none" />
+    <label>Description</label>
+    <input asp-for="Description" />
+    <label>Amount</label>
+    <input asp-for="Amount" />
+    <label>Category</label>
+    <input asp-for="Category" />
+    <button type="submit">Update</button>
+</form>
